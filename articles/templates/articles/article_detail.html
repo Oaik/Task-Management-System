@@ -1,0 +1,23 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class="article-detail">
+    <div class="article">
+        <img src="{{ article.thumb.url }}" />
+        <h3 class="center">{{ article.title }}</h3>
+        <p class="flow-text">{{ article.body }}</p>
+        {% comment %} <p>{{ article.date }}</p> {% endcomment %}
+        <h6>Task by <b>{{ article.author.username }}</b></h6>
+        <blockquote>
+            <p>Task starts from <b> {{article.startDate}} </b> and end in <b>  {{article.endDate}}</b>
+        </blockquote>
+        {% if request.user == article.author %}
+            <form class="site-form" action="{% url 'articles:delete' id=article.id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input class="btn red darken-4 pulse z-depth-5" type="submit" value="Finsihed it ?">
+            </form>
+        {% endif %}
+        <br>
+    </div>
+</div>
+{% endblock %}

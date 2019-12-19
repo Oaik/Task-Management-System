@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+
+{% block content%}
+    <h1>Task List</h1>
+    <hr>
+    <div class="articles">
+    {% for article in articles %}
+        <div class="article">
+            <h2><a href="{% url 'articles:detail' id=article.id %}">{{ article.title }}</a></h2>
+            <p>{{ article.snippet }}</p>
+            <p>{{ article.date }}</p>
+            <p class="author">added by <b>{{ article.author.username }}</b></p>
+        </div>
+        <hr>
+    {% endfor %}
+    </div>
+{% endblock %}

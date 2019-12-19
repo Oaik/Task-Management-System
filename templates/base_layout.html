@@ -1,0 +1,53 @@
+{% load static from static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Djangonauts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+    <header class="wrapper">
+
+        <nav class="cyan darken-2">
+            <div class="nav-wrapper container">
+                <a href="/"> <b>Home</b></a>
+
+                <ul id="nav-mobile" class="right">
+                    {% if user.is_authenticated %}
+                    <li>
+                        <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn z-depth-3" type="submit">Logout</button>
+                        </form>
+                    </li>
+                    <li><a href="{% url 'articles:create' %}" class="highlight">New Task</a></li>
+                    {% if user.is_superuser %}
+                    <li><a href="{% url 'accounts:requests' %}">User Requests</a></li>
+                    {% endif %}
+                    {% else %}
+                    <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                    <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+
+
+    </header>
+    <div class="wrapper container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.getElementsByTagName("input")[document.getElementsByTagName("input").length - 1].classList.add("btn");
+    </script>
+</body>
+
+</html>

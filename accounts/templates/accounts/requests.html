@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+    <h2>All users request</h2>
+    {% for user in users%}
+        <h4> {{ user.username }} </h4>
+        <p> registerd on <b>{{user.date_joined}}</b> </p>
+        <form type="POST" action="{% url 'accounts:accept' user=user.username %}">
+            <input class="btn" type="submit" value="accept"/>
+        </form>
+    {% endfor %}
+{% endblock %}
