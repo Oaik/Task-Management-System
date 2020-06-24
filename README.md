@@ -40,5 +40,5 @@ view task page "belongs to the same author"
 <img src="demo/task.png">
 
 **for superuser** accepting user requests
-<img src="userRequest.png">
+<img src="demo/userRequest.png">
 
