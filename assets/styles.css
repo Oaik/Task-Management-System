@@ -13,3 +13,7 @@ img{
 .errorlist{
     padding: 0;
 }
+
+span.helptext {
+    display: block;
+}
