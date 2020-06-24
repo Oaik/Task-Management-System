@@ -17,6 +17,7 @@ Technolgy and langues used:
   <li> superuser have the permission to accpet or deny new users </li>
   <li> once a superuser accepted a new user now he allow to create and post new tasks </li>
   <li> Create new task and decide the deadline for it </li>
+  <li> Only the author of the task can flag that his own task finished and delete it </li>
 </ul>
 
 <h3>Demo</h3>
