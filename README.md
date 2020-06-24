@@ -15,7 +15,7 @@ Technolgy and langues used:
 <ul>
   <li> Login/Register System </li>
   <li> superuser have the permission to accpet or deny new users </li>
-  <li> once a superuser accepted a new user now he allow to create and post new tasks <li>
+  <li> once a superuser accepted a new user now he allow to create and post new tasks </li>
   <li> Create new task and decide the deadline for it </li>
 </ul>
 
